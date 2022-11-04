@@ -1,0 +1,16 @@
+{
+    "name": "test",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "dev": "parcel pages/index.html",
+      "build": "parcel build pages/index.html"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "parcel": "^2.0.1" 
+    }
+  } 
