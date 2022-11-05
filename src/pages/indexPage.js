@@ -1,3 +1,9 @@
+import Handlebars from "handlebars";
+import ConversationsList from "../components/ConversationsList";
+
+// let's register component's that we'll use on that page
+Handlebars.registerPartial('ConversationsList', ConversationsList)
+
 const indexPage = `<secton id="viewport" class="b-page-wrapper">
             <div class="b-page">
                 <!-- if (user.isAuthorized) -->
@@ -8,7 +14,7 @@ const indexPage = `<secton id="viewport" class="b-page-wrapper">
                                 <!-- aside profile -->
                                 <section class="b-profile-navigation-wrapper">
                                     <div class="b-profile-navigation">
-                                        <a class="b-link" href="#">Profile >>></a>
+                                        <a class="b-link" href="#">My Profile >>></a>
                                     </div>
                                 </section>
                                 <!-- aside search -->
@@ -20,19 +26,7 @@ const indexPage = `<secton id="viewport" class="b-page-wrapper">
                                 </section>
                                 <!-- conversations list -->
                                 <section class="b-conversations-list-wrapper">
-                                    <div class="b-conversations-list">
-                                        {{#each conversationsList}}
-                                        <div class="b-conversation-wrapper">
-                                            <div class="b-conversation">
-                                            <figure>
-                                                <image class="b-image" src="" />
-                                            </figure>
-                                                <span class="b-conversation-name">{{this.name}}</span>
-                                                <p class="b-conversation-last-message">{{this.message.text}}</p>
-                                            </div>
-                                        </div>
-                                        {{/each}}
-                                    </div>
+                                    {{> ConversationsList}}
                                 </section>
                             </div>
                         </aside>

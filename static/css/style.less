@@ -3,19 +3,87 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -23,25 +91,44 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -58,7 +145,7 @@ table {
 @font-face {
 	font-family: 'classic-console';
 	src: url('../fonts/clacon2.woff2') format('woff'),
-		 url('../fonts/clacon2.woff2') format('truetype');
+		url('../fonts/clacon2.woff2') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 
@@ -70,8 +157,8 @@ table {
 	align-items: stretch;
 	min-height: 100vh;
 	background: @background-color;
-	
-	font-family: 'classic-console'; 
+
+	font-family: 'classic-console';
 	outline-color: @plaintext-color;
 
 	& .b-page {
@@ -79,18 +166,18 @@ table {
 		.b-conversations-wrapper {
 			display: flex;
 			min-height: 100vh;
-			width: 234px;
+			width: 350px;
 			margin-right: auto;
 			border-right: 1px solid @link-color;
 			background-color: @shadow-color;
 			color: @plaintext-color;
-			
+
 			.b-conversations {
 				display: flex;
 				flex-direction: column;
 				padding: 10px;
-			
-			
+
+
 				/* profile */
 				.b-profile-navigation-wrapper {
 					display: flex;
@@ -118,6 +205,10 @@ table {
 					.b-conversations-search {
 						display: flex;
 						margin-left: auto;
+
+						.b-input {
+							width: 290px;
+						}
 					}
 				}
 
@@ -125,13 +216,63 @@ table {
 					.b-conversations-list {
 						.b-conversation-wrapper {
 							.b-conversation {
-								padding: 5px 0;
+								display: flex;
+								flex-direction: row;
+								padding: 10px 0;
 								border-bottom: 1px solid @plaintext-color;
+								font-size: 1.1em;
 							}
 
 							&:first-child {
 								border-top: 1px solid @plaintext-color;
 							}
+
+							.b-image-wrapper {
+								margin-right: 10px;
+
+								.b-image {
+									display: block;
+									border-radius: 30px;
+								}
+							}
+
+							.b-message-wrapper {
+								display: flex;
+								flex-direction: column;
+								.b-message {
+									display: flex;
+
+									.b-conversation-name {
+										font-size: 1.2em;
+										color: @link-color;
+										padding-bottom: 6px;
+									}
+
+									.b-conversation-last-message {
+										width: 230px;
+										font-size: 0.8em;
+										white-space: nowrap;
+										overflow: hidden;
+										text-overflow: ellipsis;
+									}
+								}
+							}
+
+							.b-message-info {
+								display: flex;
+								flex-direction: column;
+								align-items: end;
+								margin-left: auto;
+							
+
+								.b-unread-messages {
+									margin-top: auto;
+									background-color: @link-color;
+									padding: 5px;
+									border-radius: 30px;
+								}
+							}
+
 						}
 					}
 				}
