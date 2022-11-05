@@ -1,0 +1,105 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@font-face {
+  font-family: classic-console;
+  src: url("clacon2.3f06aafa.woff2") format("woff"), url("clacon2.3f06aafa.woff2") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.b-page-wrapper {
+  min-height: 100vh;
+  background: #000;
+  outline-color: #fff;
+  align-items: stretch;
+  font-family: classic-console;
+  display: flex;
+}
+
+.b-page-wrapper .b-page .b-conversations-wrapper {
+  min-height: 100vh;
+  width: 234px;
+  color: #fff;
+  background-color: #333;
+  border-right: 1px solid #6f6;
+  margin-right: auto;
+  display: flex;
+}
+
+.b-page-wrapper .b-page .b-conversations-wrapper .b-conversations {
+  flex-direction: column;
+  padding: 10px;
+  display: flex;
+}
+
+.b-page-wrapper .b-page .b-conversations-wrapper .b-conversations .b-profile-navigation-wrapper {
+  margin-left: auto;
+  display: flex;
+}
+
+.b-page-wrapper .b-page .b-conversations-wrapper .b-conversations .b-profile-navigation-wrapper .b-profile-navigation {
+  margin: 0 0 10px;
+}
+
+.b-page-wrapper .b-page .b-conversations-wrapper .b-conversations .b-profile-navigation-wrapper .b-profile-navigation .b-link {
+  color: #6f6;
+}
+
+.b-page-wrapper .b-page .b-conversations-wrapper .b-conversations .b-profile-navigation-wrapper .b-profile-navigation .b-link:hover {
+  color: #ff3;
+  text-decoration: none;
+}
+
+.b-page-wrapper .b-page .b-conversations-wrapper .b-conversations .b-conversations-search-wrapper {
+  margin: 0 0 20px;
+  display: flex;
+}
+
+.b-page-wrapper .b-page .b-conversations-wrapper .b-conversations .b-conversations-search-wrapper .b-conversations-search {
+  margin-left: auto;
+  display: flex;
+}
+
+.b-page-wrapper .b-page .b-conversations-wrapper .b-conversations .b-conversations-list-wrapper .b-conversations-list .b-conversation-wrapper .b-conversation {
+  border-bottom: 1px solid #fff;
+  padding: 5px 0;
+}
+
+.b-page-wrapper .b-page .b-conversations-wrapper .b-conversations .b-conversations-list-wrapper .b-conversations-list .b-conversation-wrapper:first-child {
+  border-top: 1px solid #fff;
+}
+
+/*# sourceMappingURL=index.4db2bfbb.css.map */

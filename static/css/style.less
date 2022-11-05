@@ -1,0 +1,141 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* custom CSS */
+@link-color: #66FF66;
+@plaintext-color: #FFFFFF;
+@shadow-color: #333333;
+@highlight-color: #FFFF33;
+@background-color: #000000;
+
+@font-face {
+	font-family: 'classic-console';
+	src: url('../fonts/clacon2.woff2') format('woff'),
+		 url('../fonts/clacon2.woff2') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+
+.b-page-wrapper {
+	display: flex;
+	align-items: stretch;
+	min-height: 100vh;
+	background: @background-color;
+	
+	font-family: 'classic-console'; 
+	outline-color: @plaintext-color;
+
+	& .b-page {
+
+		.b-conversations-wrapper {
+			display: flex;
+			min-height: 100vh;
+			width: 234px;
+			margin-right: auto;
+			border-right: 1px solid @link-color;
+			background-color: @shadow-color;
+			color: @plaintext-color;
+			
+			.b-conversations {
+				display: flex;
+				flex-direction: column;
+				padding: 10px;
+			
+			
+				/* profile */
+				.b-profile-navigation-wrapper {
+					display: flex;
+					margin-left: auto;
+
+					.b-profile-navigation {
+						margin: 0 0 10px;
+
+						.b-link {
+							color: @link-color;
+
+							&:hover {
+								color: @highlight-color;
+								text-decoration: none;
+							}
+						}
+					}
+				}
+
+				/* search */
+				.b-conversations-search-wrapper {
+					display: flex;
+					margin: 0 0 20px 0;
+
+					.b-conversations-search {
+						display: flex;
+						margin-left: auto;
+					}
+				}
+
+				.b-conversations-list-wrapper {
+					.b-conversations-list {
+						.b-conversation-wrapper {
+							.b-conversation {
+								padding: 5px 0;
+								border-bottom: 1px solid @plaintext-color;
+							}
+
+							&:first-child {
+								border-top: 1px solid @plaintext-color;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
