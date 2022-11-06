@@ -1,6 +1,9 @@
 import Handlebars from 'handlebars'
 import indexPage from './pages/indexPage.js'
 
+// static
+const static_url = "localhost:3000/"
+
 document.addEventListener("DOMContentLoaded", () => {
     const template = indexPage;
     const compiled = Handlebars.compile(template);
@@ -24,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
             'unreadMessages': 0,
         }
     }, {
-        'name': 'Nomad', 
+        'name': 'Nomad72', 
         'avatar_url': '',
         'message': {
             'time': '07:41',
@@ -34,7 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }, ]
 
-    const html = compiled({ conversationsList: conversationsList })
+    const html = compiled({ conversationsList: conversationsList, static_url: static_url })
     const root = document.querySelector("#root")
     root.innerHTML = html;
 })
+
+export default static_url

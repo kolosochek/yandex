@@ -156,123 +156,181 @@ table {
 	display: flex;
 	align-items: stretch;
 	min-height: 100vh;
-	background: @background-color;
+	background: @shadow-color;
 
-	font-family: 'classic-console';
+	font-family: 'classic-console', Arial, Helvetica, sans-serif;
 	outline-color: @plaintext-color;
 
-	& .b-page {
+	.b-page {
+		min-width: 100%;
 
-		.b-conversations-wrapper {
-			display: flex;
-			min-height: 100vh;
-			width: 350px;
-			margin-right: auto;
-			border-right: 1px solid @link-color;
-			background-color: @shadow-color;
-			color: @plaintext-color;
-
-			.b-conversations {
+		.b-chat-viewport-wrapper {
+			.b-chat-viewport {
 				display: flex;
-				flex-direction: column;
-				padding: 10px;
+				flex-direction: row;
+				color: @plaintext-color;
 
-
-				/* profile */
-				.b-profile-navigation-wrapper {
+				/* Aside */
+				.b-conversations-wrapper {
 					display: flex;
-					margin-left: auto;
+					min-height: 100vh;
+					width: 355px;
+					margin-right: auto;
+					border-right: 1px solid @link-color;
+					background-color: @shadow-color;
+					color: @plaintext-color;
 
-					.b-profile-navigation {
-						margin: 0 0 10px;
-
-						.b-link {
-							color: @link-color;
-
-							&:hover {
-								color: @highlight-color;
-								text-decoration: none;
-							}
-						}
-					}
-				}
-
-				/* search */
-				.b-conversations-search-wrapper {
-					display: flex;
-					margin: 0 0 20px 0;
-
-					.b-conversations-search {
+					.b-conversations {
 						display: flex;
-						margin-left: auto;
+						flex-direction: column;
+						padding: 10px;
 
-						.b-input {
-							width: 290px;
+
+						/* profile */
+						.b-profile-navigation-wrapper {
+							display: flex;
+							margin-left: auto;
+
+							.b-profile-navigation {
+								margin: 0 0 10px;
+
+								.b-link {
+									color: @link-color;
+
+									&:hover {
+										color: @highlight-color;
+										text-decoration: none;
+									}
+								}
+							}
+						}
+
+						/* search */
+						.b-conversations-search-wrapper {
+							display: flex;
+							margin: 0 0 20px 0;
+
+							.b-conversations-search {
+								display: flex;
+								margin-left: auto;
+
+								&>* {
+									border-color: @link-color;
+									outline-color: @link-color;
+									color: @plaintext-color;
+									background: @shadow-color;
+									font-family: 'classic-console', Arial, Helvetica, sans-serif;
+									font-size: 1.2em;
+
+									&:hover {
+										outline: none;
+									}
+								}
+
+								.b-input {
+									height: 25px;
+									width: 290px;
+									padding-left: 5px;
+								}
+							}
+						}
+
+						.b-conversations-list-wrapper {
+							.b-conversations-list {
+								.b-conversation-wrapper {
+									.b-conversation {
+										display: flex;
+										flex-direction: row;
+										padding: 10px 0;
+										border-bottom: 1px solid @plaintext-color;
+										font-size: 1.1em;
+
+										&:hover {}
+									}
+
+									&:first-child {
+										border-top: 1px solid @plaintext-color;
+									}
+
+									.b-image-wrapper {
+										margin-right: 10px;
+
+										.b-image {
+											display: block;
+											width: 47px;
+											height: 47px;
+											border-radius: 50%;
+
+											&.state__empty {
+												background: #000000 repeat;
+											}
+										}
+									}
+
+									.b-message-wrapper {
+										display: flex;
+										flex-direction: column;
+
+										.b-message {
+											display: flex;
+											flex-grow: 1;
+											flex-direction: column;
+
+											.b-conversation-name {
+												font-size: 1.2em;
+												color: @link-color;
+												padding-bottom: 6px;
+											}
+
+											.b-conversation-last-message {
+												width: 230px;
+												font-size: 0.8em;
+												line-height: 0.9em;
+												overflow: hidden;
+												text-overflow: ellipsis;
+												display: -webkit-box;
+												-webkit-line-clamp: 2;
+												line-clamp: 2;
+												-webkit-box-orient: vertical;
+											}
+										}
+									}
+
+									.b-message-info {
+										display: flex;
+										flex-direction: column;
+										align-items: end;
+										margin-left: auto;
+										font-size: 0.8em;
+
+
+										.b-unread-messages {
+											margin-top: auto;
+											background-color: @link-color;
+											padding: 5px 8px;
+											border-radius: 50%;
+										}
+									}
+
+								}
+							}
 						}
 					}
 				}
 
-				.b-conversations-list-wrapper {
-					.b-conversations-list {
-						.b-conversation-wrapper {
-							.b-conversation {
-								display: flex;
-								flex-direction: row;
-								padding: 10px 0;
-								border-bottom: 1px solid @plaintext-color;
-								font-size: 1.1em;
-							}
+				.b-chat-window-wrapper {
+					display: flex;
+					flex-grow: 1;
 
-							&:first-child {
-								border-top: 1px solid @plaintext-color;
-							}
+					.b-chat-window {
+						display: flex;
+						flex-grow: 1;
 
-							.b-image-wrapper {
-								margin-right: 10px;
-
-								.b-image {
-									display: block;
-									border-radius: 30px;
-								}
-							}
-
-							.b-message-wrapper {
-								display: flex;
-								flex-direction: column;
-								.b-message {
-									display: flex;
-
-									.b-conversation-name {
-										font-size: 1.2em;
-										color: @link-color;
-										padding-bottom: 6px;
-									}
-
-									.b-conversation-last-message {
-										width: 230px;
-										font-size: 0.8em;
-										white-space: nowrap;
-										overflow: hidden;
-										text-overflow: ellipsis;
-									}
-								}
-							}
-
-							.b-message-info {
-								display: flex;
-								flex-direction: column;
-								align-items: end;
-								margin-left: auto;
-							
-
-								.b-unread-messages {
-									margin-top: auto;
-									background-color: @link-color;
-									padding: 5px;
-									border-radius: 30px;
-								}
-							}
-
+						.b-chat-window-empty {
+							align-self: center;
+							width: 100%; 
+							font-size: 2em;
+							text-align: center;
 						}
 					}
 				}
