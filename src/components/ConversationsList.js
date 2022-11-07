@@ -2,13 +2,22 @@ import Handlebars from "handlebars";
 import AvatarComponent from "./Avatar";
 
 Handlebars.registerPartial('AvatarComponent', AvatarComponent);
-
+// do we have an active conversation?
+const active_chat_id = localStorage.getItem('active_chat_id') ? localStorage.getItem('active_chat_id') : '';
+Handlebars.registerHelper('log', value => console.log(value));
+Handlebars.registerHelper('if_eq', function(a, b, opts) {
+    if (a == b) {
+        return opts.fn(this);
+    } else {
+        return opts.inverse(this);
+    }
+});
 
 const ConversationsList = `
 <section class="b-conversations-list-wrapper">
     <div class="b-conversations-list">
             {{#each conversationsList}}
-            <div class="b-conversation-wrapper">
+            <div class="b-conversation-wrapper{{#if_eq ../active_chat_id this.chat_id}} state__active{{/if_eq}}">
                 <div class="b-conversation" chat_id="{{this.chat_id}}"]>
                     {{> AvatarComponent image_url="this.avatar_url"}}
                     <div class="b-message-wrapper">

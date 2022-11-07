@@ -14,7 +14,7 @@ Handlebars.registerPartial('ChatWindow', ChatWindow);
 
 
 const IndexPage = `
-<secton id="viewport" class="b-page-wrapper">
+<main id="viewport" class="b-page-wrapper">
     <div class="b-page">
         <!-- if (user.isAuthorized) -->
         <section class="b-chat-viewport-wrapper">
@@ -37,7 +37,7 @@ const IndexPage = `
         
         <!-- -->
     </div>
-</secton>
+</main>
 `
 
 export default IndexPage;

@@ -140,7 +140,8 @@ table {
 @plaintext-color: #FFFFFF;
 @shadow-color: #333333;
 @highlight-color: #FFFF33;
-@background-color: #000000;
+@background-color: #4c4c4c;
+@black-color: #000000;
 
 @font-face {
 	font-family: 'classic-console';
@@ -162,11 +163,16 @@ table {
 	outline-color: @plaintext-color;
 
 	.b-page {
-		min-width: 100%;
+		display: flex;
+		flex-grow: 1;
 
 		.b-chat-viewport-wrapper {
+			display: flex;
+			flex-grow: 1;
+
 			.b-chat-viewport {
 				display: flex;
+				flex-grow: 1;
 				flex-direction: row;
 				color: @plaintext-color;
 
@@ -174,7 +180,7 @@ table {
 				.b-conversations-wrapper {
 					display: flex;
 					min-height: 100vh;
-					width: 355px;
+					width: 360px;
 					margin-right: auto;
 					border-right: 1px solid @link-color;
 					background-color: @shadow-color;
@@ -199,7 +205,7 @@ table {
 						/* search */
 						.b-conversations-search-wrapper {
 							display: flex;
-							margin: 0 0 20px 0;
+							margin: 0 0 21px 0;
 
 							.b-conversations-search {
 								display: flex;
@@ -231,10 +237,14 @@ table {
 								.b-conversation-wrapper {
 										cursor: pointer;
 
+										&.state__active {
+											background-color: @background-color;
+										}
+
 									.b-conversation {
 										display: flex;
 										flex-direction: row;
-										padding: 10px 0;
+										padding: 10px;
 										border-bottom: 1px solid @link-color;
 
 										&:hover {}
@@ -280,7 +290,7 @@ table {
 											background-color: @link-color;
 											padding: 5px 8px;
 											border-radius: 50%;
-											color: @background-color;
+											color: @black-color;
 										}
 									}
 
@@ -346,7 +356,7 @@ table {
 							font-size: 1.3em;
 
 							.b-chat-message-wrapper {
-								padding: 10px 0;
+								padding: 7px 0;
 
 								.b-chat-message {
 
@@ -363,6 +373,10 @@ table {
 										margin-top: auto;
 										padding: 4px 8px;
 										font-size: 0.9em;
+									}
+
+									.b-message-text {
+										line-height: 1.2em;
 									}
 								}
 							}
@@ -421,7 +435,40 @@ table {
 	}
 }
 
-/* TODO put me in proper components */
+/* 400.html */
+.b-page-wrapper {
+    .b-page {
+        display: flex;
+
+        .b-error-wrapper {
+            display: flex;
+            flex-grow: 1;
+
+            .b-error {
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                align-self: center;
+                text-align: center;
+
+
+                .b-error-title {
+                    font-size: 4em;
+                    color: @link-color;
+                }
+
+				.b-error-message {
+					color: @plaintext-color;
+					font-size: 1.5em;
+					padding: 2em 0 1.3em;
+				}
+            }
+        }
+    }
+}
+
+
+/* TODO put this in proper components */
 .b-avatar-wrapper {
 	margin-right: 10px;
 
