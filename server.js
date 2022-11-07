@@ -7,8 +7,8 @@ const port = 3000
 const static_url = path.join(__dirname, 'static')
 app.use(express.static(static_url))
 
-//app.get('/', (request, response) => {
-//  response.sendFile(path.join(__dirname, '/dist/index.html'))
+//app.get('/error/500.html', (request, response) => {
+//  response.sendFile(path.join(__dirname, '/500.html'))
 //})
 
 app.listen(port, () => {

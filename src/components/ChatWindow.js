@@ -1,11 +1,10 @@
 import Handlebars from "handlebars";
 import AvatarComponent from "./Avatar";
-// do we have an active conversation?
-const active_chat_id = localStorage.getItem('active_chat_id') ? localStorage.getItem('active_chat_id') : '';
+import ImageComponent from "./Image";
 
 Handlebars.registerPartial('AvatarComponent', AvatarComponent);
-Handlebars.registerHelper('json', (value) => JSON.parse(value));
-Handlebars.registerHelper("log", (value) => console.log(value));
+Handlebars.registerPartial('Image', ImageComponent);
+Handlebars.registerHelper('log', (value) => console.log(value));
 Handlebars.registerHelper('if_eq', function(a, b, opts) {
     if (a == b) {
         return opts.fn(this);
@@ -17,8 +16,9 @@ Handlebars.registerHelper('if_eq', function(a, b, opts) {
 
 const ChatWindow = `
 <section class="b-chat-window-wrapper">
-        {{#if active_chat_id}}
-            {{#with (json this.activeChat)}}
+{{log this}}
+        {{#if this.active_chat_id}}
+            {{#with this.activeChat}}
             <div class="b-chat-window">
                 <div class="b-chat-info-wrapper">
                     <div class="b-chat-info">
@@ -41,7 +41,13 @@ const ChatWindow = `
                     {{/each}}
                 </section>
                 <section class="b-chat-reply-wrapper">
-                    <div class="b-chat-reply"></div>
+                    <form class="b-chat-reply">
+                        <figure class="b-attach-file">
+                            {{> Image static_url=../static_url image_url='attach_file_icon.png' width='20' height='20'}}
+                        </figure>
+                    <input type="text" name="message" class="b-input" />
+                    <button type="submit" class="b-submit">></button>
+                    </form>
                 </section>
             </div>
             {{/with}}

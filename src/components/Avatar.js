@@ -6,7 +6,7 @@ const AvatarComponent = `
     {{#if this.avatar_url }}
     <image src="{{this.avatar_url}}" width="47" height="47" alt="avatar" class="b-avatar b-image" />
     {{else}}
-    <image src="${static_url}/images/chessboard.png" width="47" height="47" alt="avatar" class="b-image state__empty" />
+    <image src="${static_url}/images/no_image.png" width="47" height="47" alt="avatar" class="b-image state__empty" />
     {{/if}}
 </figure>
 `

@@ -7,15 +7,13 @@ import ConversationsList from "../components/ConversationsList";
 import data from "../../data";
 
 // let's register components that we'll use on that page
-Handlebars.registerPartial('ConversationsList', ConversationsList)
-Handlebars.registerPartial('AsideProfile', AsideProfile)
-Handlebars.registerPartial('AsideSearch', AsideSearch)
-Handlebars.registerPartial('ChatWindow', ChatWindow)
-// do we have an active conversation?
-const active_chat_id = localStorage.getItem('active_chat_id') ? localStorage.getItem('active_chat_id') : '';
+Handlebars.registerPartial('ConversationsList', ConversationsList);
+Handlebars.registerPartial('AsideProfile', AsideProfile);
+Handlebars.registerPartial('AsideSearch', AsideSearch);
+Handlebars.registerPartial('ChatWindow', ChatWindow);
 
-const indexPage = `
-{{debug}}
+
+const IndexPage = `
 <secton id="viewport" class="b-page-wrapper">
     <div class="b-page">
         <!-- if (user.isAuthorized) -->
@@ -28,11 +26,11 @@ const indexPage = `
                         <!-- aside search -->
                         {{> AsideSearch}}
                         <!-- conversations list -->
-                        {{> ConversationsList conversationsList='${JSON.stringify(data)}'}}
+                        {{> ConversationsList}}
                     </div>
                 </aside>
                 <!-- ChatWindow -->
-                {{> ChatWindow activeChat='${JSON.stringify(data[active_chat_id])}' active_chat_id="${active_chat_id}"}} 
+                {{> ChatWindow}} 
             </div>
         </section>
         <!-- else -->
@@ -42,4 +40,4 @@ const indexPage = `
 </secton>
 `
 
-export default indexPage;
+export default IndexPage;

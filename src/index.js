@@ -1,14 +1,23 @@
 import Handlebars from 'handlebars'
-import indexPage from './pages/indexPage.js'
+import IndexPage from './pages/IndexPage.js'
+import data from '../data.js';
 
-// static
+// static url
 const static_url = "http://localhost:3000/";
+// do we have an active conversation?
+const active_chat_id = localStorage.getItem('active_chat_id') ? localStorage.getItem('active_chat_id') : '';
 
+const getActiveChat = (data, active_chat_id) => {
+    for(const conversation of data){
+        if(conversation.chat_id == active_chat_id)  {
+            return conversation;
+        }
+    }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-    const template = indexPage;
-    const compiled = Handlebars.compile(template);
-    const html = compiled({ static_url: static_url });
+    const compiled = Handlebars.compile(IndexPage);    
+    const html = compiled({ static_url: static_url, conversationsList: data, activeChat: getActiveChat(data, active_chat_id), active_chat_id: active_chat_id });
     const root = document.querySelector("#root");
     root.innerHTML = html;
 

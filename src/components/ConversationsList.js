@@ -1,15 +1,13 @@
 import Handlebars from "handlebars";
 import AvatarComponent from "./Avatar";
 
-Handlebars.registerHelper('json', (value) => JSON.parse(value));
 Handlebars.registerPartial('AvatarComponent', AvatarComponent);
 
 
 const ConversationsList = `
 <section class="b-conversations-list-wrapper">
     <div class="b-conversations-list">
-        {{#with (json conversationsList)}}
-            {{#each this}}
+            {{#each conversationsList}}
             <div class="b-conversation-wrapper">
                 <div class="b-conversation" chat_id="{{this.chat_id}}"]>
                     {{> AvatarComponent image_url="this.avatar_url"}}
@@ -38,7 +36,6 @@ const ConversationsList = `
                 </div>
             </div>
             {{/each}}
-        {{/with}}
     </div>
 </section>
 <script type="module">
