@@ -1,14 +1,21 @@
 import Handlebars from "handlebars";
 import AsideProfile from "../components/AsideProfile";
 import AsideSearch from "../components/AsideSearch";
+import ChatWindow from "../components/ChatWindow";
 import ConversationsList from "../components/ConversationsList";
+// data, TODO fetch me from API
+import data from "../../data";
 
 // let's register components that we'll use on that page
 Handlebars.registerPartial('ConversationsList', ConversationsList)
 Handlebars.registerPartial('AsideProfile', AsideProfile)
 Handlebars.registerPartial('AsideSearch', AsideSearch)
+Handlebars.registerPartial('ChatWindow', ChatWindow)
+// do we have an active conversation?
+const active_chat_id = localStorage.getItem('active_chat_id') ? localStorage.getItem('active_chat_id') : '';
 
 const indexPage = `
+{{debug}}
 <secton id="viewport" class="b-page-wrapper">
     <div class="b-page">
         <!-- if (user.isAuthorized) -->
@@ -21,18 +28,15 @@ const indexPage = `
                         <!-- aside search -->
                         {{> AsideSearch}}
                         <!-- conversations list -->
-                        {{> ConversationsList}}
+                        {{> ConversationsList conversationsList='${JSON.stringify(data)}'}}
                     </div>
                 </aside>
-                <section class="b-chat-window-wrapper">
-                    <div class="b-chat-window">
-                        <p class="b-chat-window-empty"><= Choose a conversation to send a message.</p>
-                    </div>
-                </section>
+                <!-- ChatWindow -->
+                {{> ChatWindow activeChat='${JSON.stringify(data[active_chat_id])}' active_chat_id="${active_chat_id}"}} 
             </div>
         </section>
         <!-- else -->
-
+        
         <!-- -->
     </div>
 </secton>

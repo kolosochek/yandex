@@ -1,8 +1,7 @@
 {
     "name": "sprint_1",
     "version": "0.99a",
-    "description": "",
-    "main": "index.js",
+    "description": "ModemWebchat App. Slowest thing you've ever saw!",
     "scripts": {
         "dev": "parcel ./index.html & node server.js",
         "build": "parcel build ./index.html"

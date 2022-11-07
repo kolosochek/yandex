@@ -193,15 +193,6 @@ table {
 
 							.b-profile-navigation {
 								margin: 0 0 10px;
-
-								.b-link {
-									color: @link-color;
-
-									&:hover {
-										color: @highlight-color;
-										text-decoration: none;
-									}
-								}
 							}
 						}
 
@@ -238,33 +229,19 @@ table {
 						.b-conversations-list-wrapper {
 							.b-conversations-list {
 								.b-conversation-wrapper {
+										cursor: pointer;
+
 									.b-conversation {
 										display: flex;
 										flex-direction: row;
 										padding: 10px 0;
-										border-bottom: 1px solid @plaintext-color;
-										font-size: 1.1em;
+										border-bottom: 1px solid @link-color;
 
 										&:hover {}
 									}
 
 									&:first-child {
-										border-top: 1px solid @plaintext-color;
-									}
-
-									.b-image-wrapper {
-										margin-right: 10px;
-
-										.b-image {
-											display: block;
-											width: 47px;
-											height: 47px;
-											border-radius: 50%;
-
-											&.state__empty {
-												background: #000000 repeat;
-											}
-										}
+										border-top: 1px solid @link-color;
 									}
 
 									.b-message-wrapper {
@@ -276,15 +253,9 @@ table {
 											flex-grow: 1;
 											flex-direction: column;
 
-											.b-conversation-name {
-												font-size: 1.2em;
-												color: @link-color;
-												padding-bottom: 6px;
-											}
-
 											.b-conversation-last-message {
 												width: 230px;
-												font-size: 0.8em;
+												font-size: 0.9em;
 												line-height: 0.9em;
 												overflow: hidden;
 												text-overflow: ellipsis;
@@ -309,6 +280,7 @@ table {
 											background-color: @link-color;
 											padding: 5px 8px;
 											border-radius: 50%;
+											color: @plaintext-color;
 										}
 									}
 
@@ -322,9 +294,9 @@ table {
 					display: flex;
 					flex-grow: 1;
 
-					.b-chat-window {
+					.b-chat-window-empty-wrapper {
 						display: flex;
-						flex-grow: 1;
+						width: 100%;
 
 						.b-chat-window-empty {
 							align-self: center;
@@ -333,8 +305,115 @@ table {
 							text-align: center;
 						}
 					}
+
+					.b-chat-window {
+						display: flex;
+						flex-direction: column;
+						width: 100%;
+
+						
+
+						.b-chat-info-wrapper {
+							display: flex;
+							height: 88px;
+							border-bottom: 1px solid @link-color;
+							
+							.b-chat-info {
+								display: flex;
+								width: 100%;
+
+								.b-avatar-wrapper {
+									align-self: center;
+									padding-left: 10px;
+								}
+								
+								.b-profile-title {
+									align-self: center;
+									padding: 3px 0 0 5px;
+								}
+
+								.b-chat-settings {
+									align-self: center;
+									margin-left: auto;
+									padding-right: 10px;
+								}
+							}
+						}
+
+						.b-chat {
+							margin-top: auto;
+							padding: 0 20px;
+							font-size: 1.3em;
+
+							.b-chat-message-wrapper {
+								padding: 10px 0;
+
+								.b-chat-message {
+
+									.b-message-author {
+										color: @link-color;
+										padding-left: 5px;
+										font-size: 0.9em;
+									}
+
+									.b-message-time {
+										color: @background-color;
+										background-color: @link-color;
+										border-radius: 15px;
+										margin-top: auto;
+										padding: 4px 8px;
+										font-size: 0.9em;
+									}
+								}
+							}
+
+							.state__mine {
+								text-align: right;
+							}
+						}
+
+						.b-chat-reply-wrapper {
+							height: 50px;
+							border-top: 1px solid @link-color;
+
+							.b-chat-reply {
+
+							}
+
+						}
+					}
 				}
 			}
 		}
+	}
+}
+
+/* TODO put me in proper components */
+.b-avatar-wrapper {
+	margin-right: 10px;
+
+	.b-image {
+		display: block;
+		width: 47px;
+		height: 47px;
+		border-radius: 50%;
+
+		&.state__empty {
+		}
+	}
+}
+
+.b-profile-title {
+	font-size: 1.3em;
+	color: @link-color;
+	padding-bottom: 6px;
+}
+
+.b-link {
+	color: @link-color;
+
+	&:hover {
+		color: @highlight-color;
+		text-decoration: none;
 	}
 }
