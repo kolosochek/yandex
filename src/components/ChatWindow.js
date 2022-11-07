@@ -4,7 +4,6 @@ import ImageComponent from "./Image";
 
 Handlebars.registerPartial('AvatarComponent', AvatarComponent);
 Handlebars.registerPartial('Image', ImageComponent);
-Handlebars.registerHelper('log', (value) => console.log(value));
 Handlebars.registerHelper('if_eq', function(a, b, opts) {
     if (a == b) {
         return opts.fn(this);
@@ -16,7 +15,6 @@ Handlebars.registerHelper('if_eq', function(a, b, opts) {
 
 const ChatWindow = `
 <section class="b-chat-window-wrapper">
-{{log this}}
         {{#if this.active_chat_id}}
             {{#with this.activeChat}}
             <div class="b-chat-window">
