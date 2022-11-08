@@ -84,12 +84,7 @@ const routes = [
 ];
 
 const parseLocation = () => {
-    const path = location.pathname.slice(1).toLowerCase();
-    if(path){
-        return '/'+path;
-    } else {
-        return '/';
-    }
+    return location.hash.slice(1).toLowerCase() || '/';
 }
 const findViewByPath = (path, routes) => {
     return routes.find(route => route.path.match(new RegExp(`^\\${path}$`, 'gm'))) || undefined;
