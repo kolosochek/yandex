@@ -18,7 +18,7 @@ const ConversationsList = `
     <div class="b-conversations-list">
             {{#each conversationsList}}
             <div class="b-conversation-wrapper{{#if_eq ../active_chat_id this.chat_id}} state__active{{/if_eq}}">
-                <div class="b-conversation" chat_id="{{this.chat_id}}"]>
+                <div class="b-conversation" chat_id="{{this.chat_id}}">
                     {{> AvatarComponent image_url="this.avatar_url"}}
                     <div class="b-message-wrapper">
                         <div class="b-message">

@@ -12,6 +12,7 @@ import data from '../data.js';
 const static_url = "http://localhost:3000/";
 // do we have an active conversation?
 const active_chat_id = localStorage.getItem('active_chat_id') ? localStorage.getItem('active_chat_id') : '';
+const isAuthorized = localStorage.getItem('isAuthorized');
 
 // get chat by id
 // @return Conversation object
@@ -30,7 +31,6 @@ const renderTemplate = (template, context = {}) => {
     const html = compiled(context);
     return html;
 }
-
 
 // index page view
 const IndexView = () => {
@@ -92,9 +92,34 @@ const findViewByPath = (path, routes) => {
 
 const router = () => {
     const path = parseLocation();
-    const page = findViewByPath(path, routes) || { view: Error404View };
+    const page = isAuthorized ? findViewByPath(path, routes) || { view: Error404View } : { view: AuthView };
     // inject compiled HTML to DOM
     document.getElementById('root').innerHTML = page.view();
+
+    // let's handle custom eventListners
+
+    // conversation-list-item click
+    [...document.querySelectorAll('.b-conversation')].forEach((conversation) => {
+        conversation.addEventListener('click', () => {
+            // debug
+            console.log('gotcha');
+            // set an active chat
+            localStorage.setItem('active_chat_id', conversation.getAttribute('chat_id'));
+            // refresh the page
+            location.reload();
+
+        });
+    });
+
+    // set isAuthorised after form submit
+    const authForm = document.querySelector('.b-auth-page form');
+    if (authForm) {
+        authForm.addEventListener('submit', () => {
+            window.event.preventDefault();
+            localStorage.setItem('isAuthorized', true);
+            location.reload();
+        });
+    }
 };
 
 // router event listeners
