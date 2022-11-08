@@ -21,7 +21,7 @@ const ChatWindow = `
                 <div class="b-chat-info-wrapper">
                     <div class="b-chat-info">
                         {{> AvatarComponent image_url=this.avatar_url}}
-                        <a class="b-profile-title b-link">{{this.name}}</a>
+                        <span class="b-profile-title b-link">{{this.name}}</span>
                         <div class="b-chat-settings">
                             <a href="#" class="b-link">Settings</a>
                         </div>

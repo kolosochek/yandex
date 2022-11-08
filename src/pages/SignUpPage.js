@@ -12,7 +12,7 @@ const SignUpPage = `
         <section class="b-auth-page-wrapper">
             <div class="b-auth-page">
                 <form class="b-form" action="">
-                    <h2 class="b-page-title">Sign In</h2>
+                    <h2 class="b-page-title">Sign Up</h2>
                     {{> InputComponent title='Email' name='email_input' type='email' placeholder='sebastian1337@gmail.com' required='true'}}
                     {{> InputComponent title='First name' name='first_name_input' type='text' placeholder='Sebastian'}}
                     {{> InputComponent title='Last name' name='last_name_input' type='text' placeholder='Pereiro'}}
@@ -24,7 +24,7 @@ const SignUpPage = `
                         <button class="b-submit" type="submit">SignUp</button>
                     </div>
                     <div class="b-sign-in-wrapper">
-                        <a class="b-link" href="/auth.html">Login</a>
+                        <a class="b-link" href="/auth">Login</a>
                     </div>
                 </form>
             </div>

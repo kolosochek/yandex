@@ -19,7 +19,7 @@ const AuthPage = `
                         <button class="b-submit" type="submit">Authorize</button>
                     </div>
                     <div class="b-sign-in-wrapper">
-                        <a class="b-link" href="/signup.html">Sign Up</a>
+                        <a class="b-link" href="/signup">Sign Up</a>
                     </div>
                 </form>
             </div>
