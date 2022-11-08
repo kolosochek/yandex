@@ -3,8 +3,10 @@
     "version": "0.99a",
     "description": "ModemWebchat App. Slowest thing you've ever saw!",
     "scripts": {
-        "dev": "parcel *.html & node server.js",
-        "build": "parcel build *.html"
+        "dev": "npm run copy-images & parcel *.html & node server.js",
+        "build": "parcel build *.html & npm run copy-images",
+        "copy-images": "cp -vR ./static/images ./dist",
+        "start": "parcel *.html & npm run copy-images & node server.js"
     },
     "keywords": [],
     "author": "kolosochek",
@@ -29,7 +31,6 @@
         "@anikin/parcel-transformer-handlebars": "^1.0.9",
         "@anikin/parcel-transformer-handlebars-precompile": "^1.0.1",
         "@parcel/transformer-less": "^2.7.0",
-        "express": "^4.18.2",
         "handlebars": "^4.7.7"
     },
     "directories": {
