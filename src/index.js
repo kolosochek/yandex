@@ -35,6 +35,13 @@ const renderTemplate = (template, context = {}) => {
 // index page view
 const IndexView = () => {
     const template = IndexPage;
+    const context = { static_url: static_url, conversationsList: data, active_chat_id: '' };
+    return renderTemplate(template, context);
+}
+
+// active chat view
+const ChatView = () => {
+    const template = IndexPage;
     const context = { static_url: static_url, conversationsList: data, activeChat: getActiveChat(data, active_chat_id), active_chat_id: active_chat_id };
     return renderTemplate(template, context);
 }
@@ -79,6 +86,7 @@ const routes = [
     { path: '/', view: IndexView, },
     { path: '/auth', view: AuthView, },
     { path: '/signup', view: SignupView, },
+    { path: '/chat', view: ChatView, },
     { path: '/profile', view: ProfileView, },
     { path: '/error404', view: Error404View, },
     { path: '/error500', view: Error500View, },
@@ -111,7 +119,7 @@ const router = () => {
             // set an active chat
             localStorage.setItem('active_chat_id', conversation.getAttribute('chat_id'));
             // refresh the page
-            location.reload();
+            location.hash = '/chat';
 
         });
     });
