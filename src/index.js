@@ -135,8 +135,10 @@ const router = () => {
     // set isAuthorised = true; after form submit
     const authForm = document.querySelector('.b-auth-page form');
     if (authForm) {
-        authForm.addEventListener('submit', () => {
+        authForm.addEventListener('submit', (e) => {
+            //e.preventDefault();
             localStorage.setItem('isAuthorized', true);
+            //location.hash = '/'
             location.reload();
         });
     }
@@ -144,7 +146,8 @@ const router = () => {
     // logout 
     const logout = document.querySelector('.b-profile-navigation .b-logout');
     if (logout) {
-        logout.addEventListener('click', () => {
+        logout.addEventListener('click', (e) => {
+            //e.preventDefault();
             localStorage.removeItem('isAuthorized');
             location.reload();
         });

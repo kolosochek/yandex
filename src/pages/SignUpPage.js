@@ -11,7 +11,7 @@ const SignUpPage = `
         <!-- if (user.isAuthorized) -->
         <section class="b-auth-page-wrapper">
             <div class="b-auth-page">
-                <form method="POST" class="b-form" action="">
+                <form class="b-form" >
                     <h2 class="b-page-title">Sign Up</h2>
                     {{> InputComponent title='Email' name='email_input' type='email' placeholder='sebastian1337@gmail.com' required='true'}}
                     {{> InputComponent title='First name' name='first_name_input' type='text' placeholder='Sebastian'}}

@@ -11,7 +11,7 @@ const AuthPage = `
         <!-- if (user.isAuthorized) -->
         <section class="b-auth-page-wrapper">
             <div class="b-auth-page">
-                <form method="POST" class="b-form" action="">
+                <form class="b-form">
                     <h2 class="b-page-title">Sign In</h2>
                     {{> InputComponent title='Login' name='login_input' type='text' required='true' errorMessage='Login is empty'}}
                     {{> InputComponent title='Password' name='password_input' type='password' required='true'}}
