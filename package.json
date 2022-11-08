@@ -3,10 +3,10 @@
     "version": "0.99a",
     "description": "ModemWebchat App. Slowest thing you've ever saw!",
     "scripts": {
-        "dev": "parcel *.html & node server.js",
-        "build": "npm run copy-images & parcel build *.html",
-        "copy-images": "cp -vR ./static/images ./dist",
-        "start": "parcel *.html & node server.js"
+        "dev": "parcel index.html & node server.js",
+        "build": "parcel build index.html & npm run copy-images",
+        "copy-images": "cp -R ./static/images ./dist",
+        "start": "parcel index.html & node server.js"
     },
     "keywords": [],
     "author": "kolosochek",
