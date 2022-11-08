@@ -74,6 +74,7 @@ const Error500View = () => {
     return renderTemplate(template, context);
 }
 
+// all possible routes
 const routes = [
     { path: '/', view: IndexView, },
     { path: '/auth', view: AuthView, },
@@ -83,6 +84,12 @@ const routes = [
     { path: '/error500', view: Error500View, },
 ];
 
+// routes user can get without authorization
+const unauthorizedRoutes = [
+    { path: '/auth', view: AuthView, },
+    { path: '/signup', view: SignupView, },
+
+]
 const parseLocation = () => {
     return location.hash.slice(1).toLowerCase() || '/';
 }
@@ -92,7 +99,7 @@ const findViewByPath = (path, routes) => {
 
 const router = () => {
     const path = parseLocation();
-    const page = isAuthorized ? findViewByPath(path, routes) || { view: Error404View } : { view: AuthView };
+    const page = isAuthorized ? findViewByPath(path, routes) || { view: Error404View } : findViewByPath(path, unauthorizedRoutes) || { view: Error404View };
     // inject compiled HTML to DOM
     document.getElementById('root').innerHTML = page.view();
 
@@ -101,8 +108,6 @@ const router = () => {
     // conversation-list-item click
     [...document.querySelectorAll('.b-conversation')].forEach((conversation) => {
         conversation.addEventListener('click', () => {
-            // debug
-            console.log('gotcha');
             // set an active chat
             localStorage.setItem('active_chat_id', conversation.getAttribute('chat_id'));
             // refresh the page
@@ -111,12 +116,20 @@ const router = () => {
         });
     });
 
-    // set isAuthorised after form submit
+    // set isAuthorised = true; after form submit
     const authForm = document.querySelector('.b-auth-page form');
     if (authForm) {
         authForm.addEventListener('submit', () => {
-            window.event.preventDefault();
             localStorage.setItem('isAuthorized', true);
+            location.reload();
+        });
+    }
+
+    // logout 
+    const logout = document.querySelector('.b-profile-navigation .b-logout');
+    if (logout) {
+        logout.addEventListener('click', () => {
+            localStorage.removeItem('isAuthorized');
             location.reload();
         });
     }

@@ -195,10 +195,19 @@ table {
 						/* profile */
 						.b-profile-navigation-wrapper {
 							display: flex;
-							margin-left: auto;
 
 							.b-profile-navigation {
-								margin: 0 0 10px;
+								display: flex;
+								flex-grow: 1;
+								margin: 5px 0;
+
+								.b-profile {
+
+									margin-left: auto;
+								}
+								
+								.b-logout {
+								}
 							}
 						}
 
@@ -209,7 +218,6 @@ table {
 
 							.b-conversations-search {
 								display: flex;
-								margin-left: auto;
 
 								&>* {
 									border-color: @link-color;
