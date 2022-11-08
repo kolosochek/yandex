@@ -1,9 +1,9 @@
 import Handlebars from "handlebars";
-import AvatarComponent from "./Avatar";
-import ImageComponent from "./Image";
+import AvatarComponent from "./AvatarComponent";
+import ImageComponent from "./ImageComponent";
 
 Handlebars.registerPartial('AvatarComponent', AvatarComponent);
-Handlebars.registerPartial('Image', ImageComponent);
+Handlebars.registerPartial('ImageComponent', ImageComponent);
 Handlebars.registerHelper('if_eq', function(a, b, opts) {
     if (a == b) {
         return opts.fn(this);
@@ -41,7 +41,7 @@ const ChatWindow = `
                 <section class="b-chat-reply-wrapper">
                     <form class="b-chat-reply">
                         <figure class="b-attach-file">
-                            {{> Image static_url=../static_url image_url='attach_file_icon.png' width='20' height='20'}}
+                            {{> ImageComponent static_url=../static_url image_url='attach_file_icon.png' width='20' height='20'}}
                         </figure>
                     <input type="text" name="message" class="b-input" />
                     <button type="submit" class="b-submit">></button>

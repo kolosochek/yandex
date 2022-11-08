@@ -1,7 +1,8 @@
 import Handlebars from "handlebars";
+import InputComponent from "../components/InputComponent";
 
 // let's register components that we'll use on that page
-//Handlebars.registerPartial('ConversationsList', ConversationsList);
+Handlebars.registerPartial('InputComponent', InputComponent);
 
 
 const AuthPage = `
@@ -11,15 +12,14 @@ const AuthPage = `
         <section class="b-auth-page-wrapper">
             <div class="b-auth-page">
                 <form class="b-form" action="">
-                    <div class="b-input-wrapper">
-                        <label class="b-label" for="{{input.name}}">{{input.title}}</label>
-                        <input class="b-input" name="{{input.name}}" type="{{input.type}}"  />
-                    </div>
+                    <h2 class="b-page-title">Sign In</h2>
+                    {{> InputComponent title='Login' name='login_input' type='text' errorMessage='Login is empty'}}
+                    {{> InputComponent title='Password' name='password_input' type='password'}}
                     <div class="b-submit-wrapper">
-                        <button type="submit">Authorize</button>
+                        <button class="b-submit" type="submit">Authorize</button>
                     </div>
                     <div class="b-sign-in-wrapper">
-                        <a class="b-link" href="">Sign Up</a>
+                        <a class="b-link" href="/signup.html">Sign Up</a>
                     </div>
                 </form>
             </div>

@@ -478,17 +478,61 @@ table {
 		flex-grow: 1;
 		align-self: center;
 
+		.b-page-title {
+			font-size: 2em;
+            color: @link-color;
+			padding: 50px 0 40px;
+			text-align: center;
+		}
+
+		.b-input-wrapper {
+			display: flex;
+			flex-direction: column;	
+			padding: 10px 0;
+
+			.b-label {
+				color: @plaintext-color;
+				font-size: 0.8em;
+				padding-bottom: 5px;
+			}
+
+			.b-input {
+				padding-left: 5px;
+			}
+
+			.b-input-state {
+				padding-top: 5px;
+				color:#FFFF33;
+				font-size: 0.8em;
+			}
+		}
+
 		.b-input, .b-submit {
 			border-color: @link-color;
 			outline-color: @link-color;
 			color: @plaintext-color;
 			background: @shadow-color;
 			font-family: 'classic-console', Arial, Helvetica, sans-serif;
-			font-size: 1.2em;
+			font-size: 1.1em;
+			padding: 5px;
 		
 			&:hover {
 				outline: none;
 			}
+		}
+
+		.b-submit-wrapper {
+			display: flex;
+			justify-content: center;
+			margin: 80px 0 10px;    
+
+			.b-submit {
+				text-align: center;
+			}
+		}
+
+		.b-sign-in-wrapper {
+			text-align: center;
 		}
 	}
 }

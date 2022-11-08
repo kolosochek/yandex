@@ -1,5 +1,5 @@
 import Handlebars from "handlebars";
-import AvatarComponent from "./Avatar";
+import AvatarComponent from "./AvatarComponent";
 
 Handlebars.registerPartial('AvatarComponent', AvatarComponent);
 // do we have an active conversation?
