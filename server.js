@@ -4,7 +4,6 @@ const port = 3000
 
 //static 
 const static_url = path.join(__dirname, 'static')
-
 const app = express();
 app.use(express.static(static_url))
 

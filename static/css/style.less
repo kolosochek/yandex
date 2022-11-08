@@ -438,7 +438,6 @@ table {
 /* 400.html */
 .b-page-wrapper {
     .b-page {
-        display: flex;
 
         .b-error-wrapper {
             display: flex;
@@ -466,6 +465,34 @@ table {
         }
     }
 }
+
+
+/* AuthPage */
+.b-auth-page-wrapper {
+	display: flex;
+	flex-grow: 1;
+
+	.b-auth-page {
+		display: flex;
+		justify-content: center;
+		flex-grow: 1;
+		align-self: center;
+
+		.b-input, .b-submit {
+			border-color: @link-color;
+			outline-color: @link-color;
+			color: @plaintext-color;
+			background: @shadow-color;
+			font-family: 'classic-console', Arial, Helvetica, sans-serif;
+			font-size: 1.2em;
+		
+			&:hover {
+				outline: none;
+			}
+		}
+	}
+}
+
 
 
 /* TODO put this in proper components */
