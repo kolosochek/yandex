@@ -13,6 +13,9 @@ const static_url = "http://localhost:3000/";
 // do we have an active conversation?
 const active_chat_id = localStorage.getItem('active_chat_id') ? localStorage.getItem('active_chat_id') : '';
 const isAuthorized = localStorage.getItem('isAuthorized');
+// debug
+console.log(isAuthorized);
+//
 
 // get chat by id
 // @return Conversation object
@@ -94,6 +97,7 @@ const routes = [
 
 // routes user can get without authorization
 const unauthorizedRoutes = [
+    { path: '/', view: AuthView, },
     { path: '/auth', view: AuthView, },
     { path: '/signup', view: SignupView, },
 
@@ -107,6 +111,9 @@ const findViewByPath = (path, routes) => {
 
 const router = () => {
     const path = parseLocation();
+    // debug
+    console.log(findViewByPath(path, unauthorizedRoutes));
+    //
     const page = isAuthorized ? findViewByPath(path, routes) || { view: Error404View } : findViewByPath(path, unauthorizedRoutes) || { view: Error404View };
     // inject compiled HTML to DOM
     document.getElementById('root').innerHTML = page.view();
@@ -119,7 +126,8 @@ const router = () => {
             // set an active chat
             localStorage.setItem('active_chat_id', conversation.getAttribute('chat_id'));
             // refresh the page
-            location.hash = '/chat';
+            location.reload();
+            //location.hash = '/chat';
 
         });
     });
