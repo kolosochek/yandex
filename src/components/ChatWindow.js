@@ -41,7 +41,7 @@ const ChatWindow = `
                 <section class="b-chat-reply-wrapper">
                     <form class="b-chat-reply">
                         <figure class="b-attach-file">
-                            {{> ImageComponent static_url=../static_url image_url='attach_file_icon.png' width='20' height='20'}}
+                            {{> ImageComponent image_url='attach_file_icon.png' width='20' height='20'}}
                         </figure>
                     <input type="text" name="message" class="b-input" />
                     <button type="submit" class="b-submit">></button>

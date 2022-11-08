@@ -8,8 +8,6 @@ import Error500Page from './pages/Error500Page.js';
 // import default dataset. TODO fetch me from API
 import data from '../data.js';
 
-// static url
-const static_url = "http://localhost:3000/";
 
 // get chat by id
 // @return Conversation object
@@ -32,28 +30,28 @@ const renderTemplate = (template, context = {}) => {
 // index page view
 const IndexView = () => {
     const template = IndexPage;
-    const context = { static_url: static_url, conversationsList: data, activeChat: getActiveChat(data), active_chat_id: window.localStorage.getItem('active_chat_id') };
+    const context = { conversationsList: data, activeChat: getActiveChat(data), active_chat_id: window.localStorage.getItem('active_chat_id') };
     return renderTemplate(template, context);
 }
 
 // auth page view
 const AuthView = () => {
     const template = AuthPage;
-    const context = { static_url: static_url }
+    const context = {}
     return renderTemplate(template, context);
 }
 
 // auth page view
 const SignupView = () => {
     const template = SignUpPage;
-    const context = { static_url: static_url }
+    const context = {}
     return renderTemplate(template, context);
 }
 
 // auth page view
 const ProfileView = () => {
     const template = ProfilePage;
-    const context = { static_url: static_url }
+    const context = {}
     return renderTemplate(template, context);
 }
 
