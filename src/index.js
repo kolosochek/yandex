@@ -1,4 +1,4 @@
-import Handlebars from 'handlebars'
+import Handlebars from 'handlebars';
 import IndexPage from './pages/IndexPage.js'
 import AuthPage from './pages/AuthPage.js';
 import SignUpPage from './pages/SignUpPage.js';
