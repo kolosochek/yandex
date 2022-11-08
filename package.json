@@ -4,9 +4,9 @@
     "description": "ModemWebchat App. Slowest thing you've ever saw!",
     "scripts": {
         "dev": "npm run copy-images & parcel *.html & node server.js",
-        "build": "npm run copy-images && parcel build *.html",
+        "build": "npm run copy-images & parcel build *.html",
         "copy-images": "cp -vR ./static/images ./dist",
-        "start": "npm run copy-images && parcel *.html & & node server.js"
+        "start": "npm run copy-images & parcel *.html & node server.js"
     },
     "keywords": [],
     "author": "kolosochek",
