@@ -10,16 +10,10 @@ import data from '../data.js';
 
 // static url
 const static_url = "http://localhost:3000/";
-// do we have an active conversation?
-const active_chat_id = localStorage.getItem('active_chat_id') ? localStorage.getItem('active_chat_id') : '';
-const isAuthorized = localStorage.getItem('isAuthorized');
-// debug
-console.log(isAuthorized);
-//
 
 // get chat by id
 // @return Conversation object
-const getActiveChat = (data, active_chat_id) => {
+const getActiveChat = (data, active_chat_id=window.localStorage.getItem('active_chat_id')) => {
     for (const conversation of data) {
         if (conversation.chat_id == active_chat_id) {
             return conversation;
@@ -38,14 +32,7 @@ const renderTemplate = (template, context = {}) => {
 // index page view
 const IndexView = () => {
     const template = IndexPage;
-    const context = { static_url: static_url, conversationsList: data, active_chat_id: '' };
-    return renderTemplate(template, context);
-}
-
-// active chat view
-const ChatView = () => {
-    const template = IndexPage;
-    const context = { static_url: static_url, conversationsList: data, activeChat: getActiveChat(data, active_chat_id), active_chat_id: active_chat_id };
+    const context = { static_url: static_url, conversationsList: data, activeChat: getActiveChat(data), active_chat_id: window.localStorage.getItem('active_chat_id') };
     return renderTemplate(template, context);
 }
 
@@ -89,7 +76,6 @@ const routes = [
     { path: '/', view: IndexView, },
     { path: '/auth', view: AuthView, },
     { path: '/signup', view: SignupView, },
-    { path: '/chat', view: ChatView, },
     { path: '/profile', view: ProfileView, },
     { path: '/error404', view: Error404View, },
     { path: '/error500', view: Error500View, },
@@ -110,24 +96,19 @@ const findViewByPath = (path, routes) => {
 }
 
 const router = () => {
+    const isAuthorized = window.localStorage.getItem('isAuthorized');   
     const path = parseLocation();
-    // debug
-    console.log(findViewByPath(path, unauthorizedRoutes));
-    //
     const page = isAuthorized ? findViewByPath(path, routes) || { view: Error404View } : findViewByPath(path, unauthorizedRoutes) || { view: Error404View };
     // inject compiled HTML to DOM
     document.getElementById('root').innerHTML = page.view();
 
     // let's handle custom eventListners
-
     // conversation-list-item click
     [...document.querySelectorAll('.b-conversation')].forEach((conversation) => {
-        conversation.addEventListener('click', () => {
+        conversation.addEventListener('click', (e) => {
             // set an active chat
-            localStorage.setItem('active_chat_id', conversation.getAttribute('chat_id'));
-            // refresh the page
-            location.reload();
-            //location.hash = '/chat';
+            window.localStorage.setItem('active_chat_id', conversation.getAttribute('chat_id'));
+            window.dispatchEvent(new HashChangeEvent("hashchange"));
 
         });
     });
@@ -136,10 +117,10 @@ const router = () => {
     const authForm = document.querySelector('.b-auth-page form');
     if (authForm) {
         authForm.addEventListener('submit', (e) => {
-            //e.preventDefault();
-            localStorage.setItem('isAuthorized', true);
-            //location.hash = '/'
-            location.reload();
+            e.preventDefault();
+            window.localStorage.setItem('isAuthorized', 'true');
+            window.location.hash = '/';
+            window.dispatchEvent(new HashChangeEvent("hashchange"));
         });
     }
 
@@ -147,9 +128,9 @@ const router = () => {
     const logout = document.querySelector('.b-profile-navigation .b-logout');
     if (logout) {
         logout.addEventListener('click', (e) => {
-            //e.preventDefault();
-            localStorage.removeItem('isAuthorized');
-            location.reload();
+            e.preventDefault();
+            window.localStorage.removeItem('isAuthorized');
+            window.dispatchEvent(new HashChangeEvent("hashchange"));
         });
     }
 };
