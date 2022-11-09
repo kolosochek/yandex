@@ -20,6 +20,28 @@ const getActiveChat = (data, active_chat_id=window.localStorage.getItem('active_
     }
 }
 
+// show modal window by given content
+// @return nothing
+const showModal = () => {
+    const htmlTemplate = `
+    <div id='modal_window' class='b-modal-window-wrapper'>
+        <div class='b-modal-window'>
+            <h3 class='b-modal-window-title'>Choose file</h3>
+        </div>
+    </div>
+    `
+    // append template to <body />
+    document.body.append(htmlTemplate);
+    // add custom eventListners to handle modal window(modal view)
+    const modal_window = document.querySelector('#modal_window');
+    if (modal_window) {
+        // close modal on container click
+        //modal_window.addEventListener('click');
+        modal_window.classList.toggle('state__visible');
+     }
+}
+
+
 // render given template by context using Handlebars compiler
 // @return escaped HTML
 const renderTemplate = (template, context = {}) => {
@@ -41,18 +63,31 @@ const AuthView = () => {
     const context = {}
     return renderTemplate(template, context);
 }
+// logout page view
+const LogoutView = () => {
+    window.localStorage.removeItem('isAuthorized');
+    const template = AuthPage;
+    const context = {}
+    return renderTemplate(template, context);
+}
 
-// auth page view
+// signup page view
 const SignupView = () => {
     const template = SignUpPage;
     const context = {}
     return renderTemplate(template, context);
 }
 
-// auth page view
+// profile page view
 const ProfileView = () => {
     const template = ProfilePage;
-    const context = { profile: user }
+    const context = { profile: user, mode: 'view' }
+    return renderTemplate(template, context);
+}
+// profile page view
+const ProfileEditView = () => {
+    const template = ProfilePage;
+    const context = { profile: user, mode: 'edit' }
     return renderTemplate(template, context);
 }
 
@@ -74,8 +109,10 @@ const Error500View = () => {
 const routes = [
     { path: '/', view: IndexView, },
     { path: '/auth', view: AuthView, },
+    { path: '/logout', view: LogoutView, },
     { path: '/signup', view: SignupView, },
     { path: '/profile', view: ProfileView, },
+    { path: '/profile-edit', view: ProfileEditView, },
     { path: '/error404', view: Error404View, },
     { path: '/error500', view: Error500View, },
 ];
@@ -101,7 +138,6 @@ const router = () => {
     // inject compiled HTML to DOM
     // "render" the page
     document.getElementById('root').innerHTML = page.view();
-
     
     // aside conversations list item click event handler
     [...document.querySelectorAll('.b-conversation')].forEach((conversation) => {
@@ -120,16 +156,6 @@ const router = () => {
             e.preventDefault();
             window.localStorage.setItem('isAuthorized', 'true');
             window.location.hash = '/';
-            window.dispatchEvent(new HashChangeEvent("hashchange"));
-        });
-    }
-
-    // logout 
-    const logout = document.querySelector('.b-profile-navigation .b-logout');
-    if (logout) {
-        logout.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.localStorage.removeItem('isAuthorized');
             window.dispatchEvent(new HashChangeEvent("hashchange"));
         });
     }

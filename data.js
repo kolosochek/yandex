@@ -1,6 +1,6 @@
 const data = [{
     'name': 'Alex', 
-    'avatar_url': 'https://scontent.fpwq4-1.fna.fbcdn.net/v/t39.30808-1/285997448_10226522394544218_2789973693510191095_n.jpg?stp=dst-jpg_p240x240&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=wgusGA5LWT8AX9cdomF&_nc_ht=scontent.fpwq4-1.fna&oh=00_AfD1AcqcXh2nLYiSU24l0mOYnqOEBPwgEpvRaULAsWHA1g&oe=636B7920',
+    'avatar_url': 'https://scontent.fpwq4-1.fna.fbcdn.net/v/t39.30808-1/301248278_10229132682566863_4913667097674479384_n.jpg?stp=dst-jpg_p240x240&_nc_cat=105&ccb=1-7&_nc_sid=7206a8&_nc_eui2=AeEmdW0Hol8pONOuAKe-1DrV63Qd5zXBUE3rdB3nNcFQTcYWqZBNah4I4I_lga6Q_A7-iRVgvHg2Tbk35llpw6xy&_nc_ohc=gD_1jahFQT0AX_fXNpT&_nc_ht=scontent.fpwq4-1.fna&oh=00_AfBC6oprI6wMGCCTEbO20uJ4zr2r6ZxrqSzgz4ZgOaEAzA&oe=6370DF69',
     'messages': [
         {'message': {
             'author': 'Alex',
