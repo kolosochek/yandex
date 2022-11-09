@@ -55,6 +55,32 @@ const data = [{
     }],  
     'unreadMessages': 5,      
     'chat_id': '2',
-}, ]
+},{
+    'name': 'mr. Maloy', 
+    'avatar_url': 'https://pbs.twimg.com/profile_images/415563444675284992/AENueua8_400x400.jpeg',
+    'messages': [
+        {'message': {
+            'author': 'mr. Maloy',
+            'time': '04:20',
+            'date': '11.10.2020',
+            'text': 'THUG LIFE :eastcoast:',
+        }},
+        {'message': {
+            'author': 'Me',
+            'time': '04:20',
+            'date': '11.10.2020',
+            'text': 'There is no swagger like a Mike Jagger!',
+        }},
+        {'message': {
+            'author': 'mr. Maloy',
+            'time': '18:16',
+            'date': '12.10.2020',
+            'text': 'Aint agree with that',
+        },
+    }],
+    'unreadMessages': 0,
+    'chat_id': '3',
+},
+]
 
 export default data;

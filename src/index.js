@@ -2,11 +2,12 @@ import Handlebars from 'handlebars';
 import IndexPage from './pages/IndexPage.js'
 import AuthPage from './pages/AuthPage.js';
 import SignUpPage from './pages/SignUpPage.js';
-import ProfilePage from './pages/ProfileView.js';
+import ProfilePage from './pages/ProfilePage.js';
 import Error404Page from './pages/Error404Page.js';
 import Error500Page from './pages/Error500Page.js';
 // import default dataset. TODO fetch me from API
 import data from '../data.js';
+import user from '../user.js';
 
 
 // get chat by id
@@ -51,7 +52,7 @@ const SignupView = () => {
 // auth page view
 const ProfileView = () => {
     const template = ProfilePage;
-    const context = {}
+    const context = { profile: user }
     return renderTemplate(template, context);
 }
 
@@ -79,7 +80,7 @@ const routes = [
     { path: '/error500', view: Error500View, },
 ];
 
-// routes user can get without authorization
+// routes taht user can get only without authorization
 const unauthorizedRoutes = [
     { path: '/', view: AuthView, },
     { path: '/auth', view: AuthView, },
@@ -98,10 +99,11 @@ const router = () => {
     const path = parseLocation();
     const page = isAuthorized ? findViewByPath(path, routes) || { view: Error404View } : findViewByPath(path, unauthorizedRoutes) || { view: Error404View };
     // inject compiled HTML to DOM
+    // "render" the page
     document.getElementById('root').innerHTML = page.view();
 
-    // let's handle custom eventListners
-    // conversation-list-item click
+    
+    // aside conversations list item click event handler
     [...document.querySelectorAll('.b-conversation')].forEach((conversation) => {
         conversation.addEventListener('click', (e) => {
             // set an active chat
@@ -111,7 +113,7 @@ const router = () => {
         });
     });
 
-    // set isAuthorised = true; after form submit
+    // auth form submit event handler
     const authForm = document.querySelector('.b-auth-page form');
     if (authForm) {
         authForm.addEventListener('submit', (e) => {
