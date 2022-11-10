@@ -159,6 +159,23 @@ const router = () => {
             window.dispatchEvent(new HashChangeEvent("hashchange"));
         });
     }
+
+    // chat page settings click event handler
+    const chatSettings = document.querySelector('.b-chat-settings-link');
+    if (chatSettings) {
+        chatSettings.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector('.b-chat-settings-wrapper').classList.toggle('state__visible');
+        });
+    }
+    // chat page file attach click event handler
+    const chatFileAttach = document.querySelector('.b-attach-file-link');
+    if (chatFileAttach) {
+        chatFileAttach.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector('.b-chat-reply-attachment-wrapper').classList.toggle('state__visible');
+        });
+    }
 };
 
 // router event listeners
