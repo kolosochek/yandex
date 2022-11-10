@@ -9,7 +9,8 @@ Simple demostration below:
 ![I mean theeese times, you know.](/github/modemwebchat.gif)
 
 Key features:
-- Vanilla JS. No JS or CSS frameworks has been used. Some transitions also included. I can do some HTML5+JS+CSS3 karate, bruh :vulcan_salute:. 
+- Vanilla JS. No JS or CSS frameworks has been used. Some transitions also included. I can do some HTML5+JS+CSS3+LESS karate, bruh :vulcan_salute:. 
+- Used BEM(block-element-modificator) methodology in HTML\CSS namespaces. 
 - Custom routing system, simple but powerful. Works like a charm.
 - Simple user authorisation check, one list of views for authorised users, another one for unathorised users.
 - Own MVC(Model-View-Controller) realisation.
