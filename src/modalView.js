@@ -42,5 +42,9 @@ const showModal = (template, context='') => {
             e.preventDefault();
             file_input.click();
         });
+
+        file_input.addEventListener('change', () => {
+            upload_file_link.text = file_input.value;
+        });
     }
 }

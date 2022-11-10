@@ -55,7 +55,7 @@ const data = [{
     }],  
     'unreadMessages': 5,      
     'chat_id': '2',
-},{
+}, {
     'name': 'mr. Maloy', 
     'avatar_url': 'https://pbs.twimg.com/profile_images/415563444675284992/AENueua8_400x400.jpeg',
     'messages': [
@@ -80,7 +80,20 @@ const data = [{
     }],
     'unreadMessages': 0,
     'chat_id': '3',
-},
+}, {
+    'name': 'SomeUser', 
+    'avatar_url': '',
+    'messages': [{   
+        'message': {
+            'author': 'SomeUser',
+            'time': '07:41',
+            'date': '12.10.2020',
+            'text': "IDDQD",
+        },
+    }],  
+    'unreadMessages': 1,      
+    'chat_id': '4',
+}, 
 ]
 
 export default data;

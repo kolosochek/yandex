@@ -44,7 +44,7 @@ const ProfilePage = `
                         </div>
                         <div class='b-profile-contol-wrapper'>
                             <div class='b-profile-control'>
-                                <a class='b-link' href="/#/password-change">Change password</a>
+                                <a class='b-link' href="/#/profile-change-password">Change password</a>
                             </div>
                         </div>
                         <div class='b-profile-contol-wrapper'>
@@ -79,6 +79,35 @@ const ProfilePage = `
                         {{> FieldProfileComponent label='Last name:' value=this.last_name mode='edit'}}
                         {{> FieldProfileComponent label='Login:' value=this.login mode='edit'}}
                         {{> FieldProfileComponent label='Phone:' value=this.phone mode='edit'}}
+                        <div class='b-profile-contol-wrapper first'>
+                            <div class='b-profile-control'>
+                                <a class='b-link' href="/#/profile">Save changes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> 
+        {{/with}}
+    {{/if_eq}}
+
+    <!-- if mode == 'change-password' -->
+    {{#if_eq this.mode "change-password"}}
+        {{#with profile}}
+        <section class="b-profile-page-wrapper">
+            <div class="b-profile-page">
+                <div class="b-profile-goback-wrapper">
+                    <a href="/" class="b-profile-goback b-link">Back</a>
+                </div>
+                <div class="b-profile-wrapper">
+                    <div class="b-profile">
+                        {{> ProfileAvatarComponent}}
+                        <div class="b-profile-name-wrapper">
+                            <h2 class="b-profile-name">{{this.first_name}}</h2>
+                        </div>
+                        {{> FieldProfileComponent label='Old password:' value='*****' mode='edit' type='password'}}
+                        {{> FieldProfileComponent label='New password:' value='*****' mode='edit' type='password'}}
+                        {{> FieldProfileComponent label='Confirm new password:' value='*****' mode='edit' type='password'}}
                         <div class='b-profile-contol-wrapper first'>
                             <div class='b-profile-control'>
                                 <a class='b-link' href="/#/profile">Save changes</a>

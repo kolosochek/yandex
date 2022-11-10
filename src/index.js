@@ -84,10 +84,18 @@ const ProfileView = () => {
     const context = { profile: user, mode: 'view' }
     return renderTemplate(template, context);
 }
+
 // profile page view
 const ProfileEditView = () => {
     const template = ProfilePage;
     const context = { profile: user, mode: 'edit' }
+    return renderTemplate(template, context);
+}
+
+// profile page view
+const ProfilePasswordView = () => {
+    const template = ProfilePage;
+    const context = { profile: user, mode: 'change-password' }
     return renderTemplate(template, context);
 }
 
@@ -113,6 +121,7 @@ const routes = [
     { path: '/signup', view: SignupView, },
     { path: '/profile', view: ProfileView, },
     { path: '/profile-edit', view: ProfileEditView, },
+    { path: '/profile-change-password', view: ProfilePasswordView, },
     { path: '/error404', view: Error404View, },
     { path: '/error500', view: Error500View, },
 ];
