@@ -35,8 +35,8 @@ https://modemwebchat.netlify.app/#/funny-cat-videos
 ```
 
 ```
-npm run build - to build the project
-npm run start - to build and start a development server
+npm run build - build the project
+npm run start - build and start a development server
 ```
 
 Make love, not war and have fun. See you, space cowboy :metal:!
