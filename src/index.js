@@ -150,11 +150,10 @@ const router = () => {
     
     // aside conversations list item click event handler
     [...document.querySelectorAll('.b-conversation')].forEach((conversation) => {
-        conversation.addEventListener('click', (e) => {
+        conversation.addEventListener('click', () => {
             // set an active chat
             window.localStorage.setItem('active_chat_id', conversation.getAttribute('chat_id'));
             window.dispatchEvent(new HashChangeEvent("hashchange"));
-
         });
     });
 
